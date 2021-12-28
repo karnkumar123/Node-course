@@ -1,0 +1,42 @@
+Day 1 --------------------------------------------------------------------------------------------->
+
+1> Nodejs is a javascript runtime built on google's open source V8 javascript engine.
+2> Earlier we had already javascript in the browser. But if we bring javascript out of browser
+   container to execute, then we must need any runtime env. So nodejs is that runtime environment 
+   for javascript.
+3> Earlier something like accesing file system or network capabilities were not possible using javascript,
+   but now since we run javascript outside browser and inside nodejs env it is very much possible.
+4> Single threaded, event driven and non-blocking I/O model.
+5> can create server side web application.
+6> we shouldn't use node for CPU intensive work like image processing or video conversion or file compression.
+
+<--------------------------------------------------------------------------------------------------
+
+Day 2 -------------------------------------------------------------------------------------------------->
+
+1> In cmd , type node -> enter -> tab(may be 1 or two times) we will see global variables in node.
+   We can select any global variables/modules say fs.
+   type fs and enter then we can see all methods and variable of this fs module.
+
+2> Difference between require and import
+   CommonJS - require, module.exports
+   ES6 - impor/ export
+   You can't selectively load only the pieces you need with require but with import, 
+   you can selectively load only the pieces you need, which can save memory.
+   Loading is synchronous(step by step) for require on the other hand 
+   import can be asynchronous(without waiting for previous import) so it can perform a little better than require.
+
+3> synchronous/blocking - Executes line by line. Current line blocks the execution of next line and it becomes worst if the 
+                          next line is no way dependent on previous line.
+
+   asynchronous/non-blocking - Current line doesn't block the next line execution.
+
+4> As we know nodejs is single threaded and we register the callback of heavy task in node-api.Once its done, the
+  callback moves to callback queue and event loop moves it to call stack after monitoring.
+  Single threaded means simply one call stack to execute the lines of codes.
+
+5> Writing callbacks doesn't make our code asynchronous automatically. We have predefined asynchronous methods already in
+   node-api (in node) or web-api (in browser) like setTimeout(present in both nodeapi and webapi) or accessing files in node
+
+6> If we make nested callbacks then it will become callback hell. we then use promise(es6) or async/await(es8) to get rid of this.
+<-------------------------------------------------------------------------------------------------------
