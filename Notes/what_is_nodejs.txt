@@ -39,4 +39,25 @@ Day 2 --------------------------------------------------------------------------
    node-api (in node) or web-api (in browser) like setTimeout(present in both nodeapi and webapi) or accessing files in node
 
 6> If we make nested callbacks then it will become callback hell. we then use promise(es6) or async/await(es8) to get rid of this.
+
+7> API is nothing but a request to get the resource/data.
+
+8> lets "nodemon":"^1.18.11"
+   it has three parts , 1 -> major version (any breaking changes)
+                        18 -> minor version (any new implemention with backward compatible)
+                        11 -> patch version (intended to fix bug)
+                        ^ -> accepts minor and patch releases
+                        ~ -> accepts only patch versions
+
+   npm outdated -> it will give all outdated packages from our packages.json file
+   npm updated slugify -> to update package
+   *1.18.11 -> it will update major changes also
+   npm uninstall slugify -> to remove
+
+9> Server side rendering -> We build the app (html, css, js) on the server side and send the whole app 
+                            to client(browser) to display
+
+   Client side rendering -> We send the data in json format from server to client through api and client
+                            consume those api with html cs and js to come up on the UI.
+video till 4
 <-------------------------------------------------------------------------------------------------------

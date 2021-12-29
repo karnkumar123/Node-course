@@ -1,0 +1,26 @@
+{
+  "name": "node-udemy",
+  "version": "1.0.0",
+  "description": "Learning nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./Example/html-template/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karnkumar123/node-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karnkumar123/node-course/issues"
+  },
+  "homepage": "https://github.com/karnkumar123/node-course#readme",
+  "dependencies": {
+    "slugify": "~1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
