@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/karnkumar123/node-course#readme",
   "dependencies": {
-    "slugify": "~1.0.0"
+    "superagent": "^7.0.1"
   },
   "devDependencies": {
+    "chalk": "^2.0.0",
     "nodemon": "^2.0.15"
-  }
+  },
+  "type": "commonjs"
 }
