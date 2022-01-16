@@ -1,0 +1,54 @@
+ 1> Express JS is a framework of NodeJS
+ 2> ExpressJS allows for rapid development of nodejs applications.
+ 3> It makes us easier to organize our applications into the MVC architecture.
+ 4> Postman is useful tool for API testing.
+ 5> npm install --save express
+ 6> API - applications programming interface. A piece of software that can be used by another piece of software,
+          in order to allow applications to talk to each other.
+
+7> REST - Representational State Transfer
+
+8> There are some principals we should follow in REST architecture.
+    -> Separate API into logical resources- Any information that can be named is resource. E.g, Any object or any data, users or reviews.
+    
+    -> Expose structured resource-based urls - E.g https://www.natours.com/addNewTour
+
+    -> Use Http methods(verbs) - endpoints should contain only resources(nouns) and use HTTP methods for actions(verb)
+
+       Bad way                                        Right Way 
+    1> /getTour                                    1> GET            /tours           -> Read
+    2> /addTour                                    2> POST           /tours           -> Create
+    3> /updateTour                                 3> PUT/PATCH      /tours           -> Update
+    4> /deleteTour                                 4> DELETE         /tours           -> Delete
+    5> /getToursByUser                             5> GET            /users/3/tours   -> Read
+    6> /deleteToursByUser                          6> DELETE         /users/3/tours/4 -> Delete
+
+    -> Send data as JSON to clients - It is very light.
+
+    -> Be stateless - All state is handled on the clients.This means that request must contain all the necessary
+                      information to process a certain request. The server shouldn't have to remember previous requests.
+
+                    
+
+9> See example app.js for CRUD operation.
+
+10> We use middleware app.use(express.json()) to take the body from req.
+
+11> We use the middleware to process the request data (obj).
+
+12> Middleware executes in order in which written in code.
+
+13> next() means, the req and res object will move to next middleware in pipeline for execution.
+
+14> app.use is used to use middleware
+
+15> Add our own middleware
+   app.use((req, res, next) => {
+      console.log(req.url);
+      req.requestTime = new Date().toLocaleString();
+      next();
+   })
+
+   This middleware will execute for every request.
+
+16> 
