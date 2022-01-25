@@ -1,0 +1,99 @@
+1> It is NoSql database.
+2> A database may have one or more collection (i.e, tables)
+3> One table has one or more documents (i.e, rows)
+4> Key features
+    -> document based - mongodb stores data in documents(field value pair data structures)
+    -> scalable - easy to distribute data across multiple machines as data grows
+    -> flexible - no document data required, document may have different number and type of fields
+    -> performant
+    -> free and open source, published under SSPL license.
+    -> most use database with nodejs
+
+5> Mongodb uses a data format similar to json called bson. Its looks like json but it is typed.
+
+6> Each document may increase upto 16mb and can increase in future.
+
+7> Whenever we create one document, mongodb automatically creates _id that treates as a unique id.
+
+8> Relational data we can add in collection only.
+
+9> Install mongodb  
+    -> download mongodb from mongodb.com and install on the machine (also install compass)
+    -> create c:/data/db folder to keep our db data.
+    -> We have to start the server mongod.exe and connect this server through mongo.exe shell
+    -> go to this C:\Program Files\MongoDB\Server\4.0\bin
+    -> run mongod.exe to start the server  default port 27017
+    -> parallely run mongo.exe to start the shell to connect to this server
+
+    Note -> we can add C:\Program Files\MongoDB\Server\4.0\bin this path in environment variables so that 
+            we can start server and shell from any location in machine.
+
+10> Steps to use mongo in mongo shell   
+    -> use Book
+        It will switch to Book db , if not exist then it will create and switch
+    
+    -> show dbs - show all databases
+
+    -> show collections - show all collections(tables) in current db
+
+    -> db.bookDetail.insertOne({name: "Java", cost: 200, author: "Mike Obrien"})
+        it will add data in bookDetail collection, if it doesn't exist, it will create collection and add data
+
+    -> db.bookDetail.find();  // to get all data in collection
+        { "_id" : ObjectId("61ef81c1874defde5fdccaaa"), "name" : "Java", "cost" : 200, "author" : "Mike Obrien" } // automatically add _id
+
+    -> quit() //  for quit
+
+    -> insertMany
+     db.bookDetail.insertMany([{name:"C",cost:230,author:'Joseph Kevin'},{name:"C++",cost:250,author:"Morrins",origin:"USA"}])
+
+    ->  db.bookDetail.find({name: "Java"})
+        // pass one condition in a object
+
+    -> db.bookDetail.find({cost: {$gte: 220}}) // cost is greater than or equal to 220
+
+    -> db.bookDetail.find({cost: {$lt:210}}, {author:"Mike Obrien"}) // AND condition
+
+    -> db.bookDetail.find({$or: [{cost: {$gte: 250}},{name: "C"}]})  // or condition
+
+    -> db.bookDetail.find({name:"Java"}, {cost:1}) // pass projections at last
+
+    ->  db.bookDetail.updateOne({cost:{$gte: 210}}, {$set: {cost: 300}}) // updateOne updates only one first matching documents
+
+    -> db.bookDetail.updateMany({cost:{$gte: 250}}, {$set: {cost: 500}})  // for more than one
+
+    -> We have deleteOne and deleteMany, below showing only deleteOne
+
+    -> db.bookDetail.deleteOne({name: "C"})
+
+11> go to compass and connect to server using host 27017 and play in compass.
+
+12> Go to mongodb atlas -> create project -> create database -> set M0 free sandbox -> creat clustor and connect for both shell and compass
+ 
+ *********************************************** Mongoose with Express*******************************************
+
+
+1> In Atlas cloud , copy the connection string for application select nodejs and version and paste it in conig.env file 
+
+2> We need a mongodb driver that interacts nodejs with mondodb. We will mongoose driver. npm install mongoose@5
+
+3> const mongoose = require('mongoose');
+
+   const DB = process.env.DATABASE_CLOUD.replace('<DATABASE_CLOUD_USERNAME>', process.env.DATABASE_CLOUD_USERNAME)
+                                     .replace('<DATABASE_CLOUD_PASSWORD>', process.env.DATABASE_CLOUD_PASSWORD)
+                                     .replace('<DATABASE_CLOUD_HOSTNAME>', process.env.DATABASE_CLOUD_HOSTNAME)
+                                     .replace('<DATABASE_CLOUD_DBNAME>', process.env.DATABASE_CLOUD_DBNAME)
+
+
+    mongoose.connect(DB, {
+        useNewUrlParser:true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
+    }, () => {
+        console.log('Connection to DB successfully !');
+    })
+
+4> If we connecting to local mongo shell using process.env.dblocal, then we have to open the server always using mongod.exe
+
+4> video till 2
